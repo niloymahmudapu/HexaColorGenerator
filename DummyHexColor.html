@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dummy Hexa Color</title>
+    <style>
+        html {
+            font-size: 10px;
+        }
+        body {
+            font-size: 1.6rem;
+            font-family: sans-serif;
+        }
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        .full-area {
+            width: 70%;
+            height: auto;
+            margin: auto;
+            background-color: #f1f1f1;
+            box-shadow: .1rem .1rem 1rem .1rem #555;
+            margin-top: 6.5rem;
+            border-radius: .5rem;
+        }
+        .full-area:hover {
+            box-shadow: 0 0 0 0 white;
+        }
+        .main-area {
+            width: 80%;
+            height: auto;
+            margin: auto;
+            padding: 5rem 0;
+        }
+        .background {
+            width: 100%;
+            height: 60rem;
+            background: #252525;
+            border-radius: .7rem;
+        }
+        .button {
+            display: block;
+            width: 40%;
+            height: 5rem;
+            margin: 0 auto .5rem;
+            font-size: 2rem;
+            border: none;
+            outline: none;
+            background: blue;
+            color: white;
+            border-radius: .35rem;
+        }
+        .button:hover {
+            box-shadow: .1rem .1rem .4rem .1rem #000; 
+        }
+        .button:active {
+            box-shadow: 0 0 0 0 white; 
+        }
+        .copy {
+            display: block;
+            width: 40%;
+            height: 5rem;
+            margin: .5rem auto 0;
+            font-size: 2rem;
+            border: none;
+            outline: none;
+            background: blue;
+            color: white;
+            border-radius: .35rem;
+        }
+        .copy:hover {
+            box-shadow: .1rem .1rem .4rem .1rem #000; 
+        }
+        .copy:active {
+            box-shadow: 0 0 0 0 white; 
+        }
+        .copyTxt {
+            height: 100%;
+            width: 100%;
+            border-radius: .5rem;
+            border: none;
+            outline: none;
+            box-sizing: border-box;
+            font-size: 6rem;
+            font-weight: bold;
+            text-align: center;
+            background: none;
+        }
+
+        @media only screen and (max-width: 1200px){
+            .full-area {
+                width: 93%;
+            }
+        }
+        @media only screen and (max-width: 499px){
+            html {
+                font-size: 7px;
+            }
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="full-area">
+        <div class="main-area">
+            <button class="button">Generate</button>
+            <div class="background">
+                <input type="text" value="#252525" class="copyTxt" readonly>
+            </div>
+            <button class="copy">Copy</button>
+        </div>
+    </div>
+
+    <script>
+        var colors = ['#11698e','#16c79a','#19456b','#f8dc81','#af0069','#00af91','#09015f','#007965','#0d335d','#312c51','#e27802','#fdffbc','#2c061f','#ff577f','#374045','#295939','#184d47','#433520','#c0e218','#23120b','#b088f9','#060930','#01c5c4','#ee6f57','#87431d','#ec0101'];
+
+        var generate = document.querySelector('.button');
+        var background = document.querySelector('.background');
+        var copy = document.querySelector('.copy');
+        var copyTxt = document.querySelector('.copyTxt');
+
+        generate.addEventListener('click',function(){
+        var number = Math.floor(Math.random()*26);
+        background.style.background = colors[number];
+        copyTxt.value = colors[number];
+        })
+            copy.addEventListener('click', function(){
+                copyTxt.select();
+                document.execCommand('copy');
+            });
+    </script>
+</body>
+</html>
